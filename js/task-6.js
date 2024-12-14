@@ -11,6 +11,8 @@ const boxes = document.getElementById("boxes")
 const createBoxes = () => {
  const newInput = Number(userInput.value)
   if (newInput > 100 || newInput < 1) return 0;
+
+  const fragment = document.createDocumentFragment();
   
   for (let i = 0; i < newInput; i++) {
     const div = document.createElement("div")
@@ -19,8 +21,9 @@ const createBoxes = () => {
     div.style.height = `${size}px`
    
     div.style.backgroundColor = getRandomHexColor()
-  boxes.append(div)
+    fragment.appendChild(div);
   }
+   boxes.appendChild(fragment);
     userInput.value = " ";
  
 }

@@ -27,12 +27,8 @@ const images = [
 
 const gallery = document.querySelector('.gallery')
 
-for (const image of images) {
-  const el = document.createElement("li")
-  const img = document.createElement("img")
-  img.src = image.url
-  img.alt = image.alt
-  el.append(img)
-  gallery.append(el)
-  
-}
+const imgElem = images
+  .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
+  .join(""); 
+
+gallery.innerHTML = imgElem;
